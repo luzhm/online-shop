@@ -61,3 +61,13 @@ document.querySelectorAll('.add-to-cart').forEach(button => {
 });
 
 updateCartDisplay();
+
+const orderForm = document.getElementById('order-form');
+const orderMessage = document.getElementById('order-message');
+orderForm.addEventListener('submit', function(e) {
+  e.preventDefault();
+  orderMessage.textContent = 'Заказ создан!';
+  cart = [];
+  updateCartDisplay();
+  orderForm.reset();
+});

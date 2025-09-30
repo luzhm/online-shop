@@ -10,7 +10,7 @@
 <body>
   <h1>Магазин электроники</h1>
   
-  <div class="cart-summary">
+   <div class="cart-summary">
     Корзина: <span id="cart-count">0</span> товаров — <span id="cart-total">0 ₽</span>
   </div>
 
@@ -31,6 +31,16 @@
       <button class="add-to-cart" data-id="3" data-price="5000" data-name="Наушники">Добавить в корзину</button>
     </div>
   </div>
+
+  <h2>Оформление заказа</h2>
+  <form id="order-form">
+    <label>Имя: <input type="text" name="firstName" required></label><br>
+    <label>Фамилия: <input type="text" name="lastName" required></label><br>
+    <label>Адрес доставки: <input type="text" name="address" required></label><br>
+    <label>Телефон: <input type="tel" name="phone" required></label><br>
+    <button type="submit">Создать заказ</button>
+  </form>
+  <div id="order-message" style="margin-top:10px;font-weight:bold;"></div>
 
   <footer>© 2025 — Лабораторная работа</footer>
 
