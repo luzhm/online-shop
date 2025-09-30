@@ -1,4 +1,6 @@
 let cart = [];
+const cartList = document.createElement('div');
+document.body.appendChild(cartList);
 
 if (localStorage.getItem('cart')) {
   cart = JSON.parse(localStorage.getItem('cart'));
@@ -7,8 +9,33 @@ if (localStorage.getItem('cart')) {
 function updateCartDisplay() {
   const cartCount = document.getElementById('cart-count');
   const cartTotal = document.getElementById('cart-total');
+  cartList.innerHTML = '';
   let total = 0;
-  cart.forEach(item => total += item.price * item.quantity);
+
+  cart.forEach(item => {
+    total += item.price * item.quantity;
+
+    const itemDiv = document.createElement('div');
+    itemDiv.textContent = `${item.name} - ${item.price} ₽ x `;
+
+    const qtyInput = document.createElement('input');
+    qtyInput.type = 'number';
+    qtyInput.min = 1;
+    qtyInput.value = item.quantity;
+    qtyInput.addEventListener('change', () => {
+      item.quantity = parseInt(qtyInput.value) || 1;
+      updateCartDisplay();
+    });
+
+    const removeBtn = document.createElement('button');
+    removeBtn.textContent = 'Удалить';
+    removeBtn.addEventListener('click', () => removeFromCart(item.id));
+
+    itemDiv.appendChild(qtyInput);
+    itemDiv.appendChild(removeBtn);
+    cartList.appendChild(itemDiv);
+  });
+
   cartCount.textContent = cart.length;
   cartTotal.textContent = total + ' ₽';
 
