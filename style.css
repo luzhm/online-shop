@@ -48,9 +48,9 @@ header {
 
 
 .sidebar-container {
-  position: fixed;
-  top: 110px;
-  right: 10px;
+  position: absolute;
+  top: 130px;
+  right: 20px;
   width: 300px;
   height: 80vh;
   display: flex;
@@ -58,22 +58,15 @@ header {
   justify-content: space-between;
   background-color: #fff;
   border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   padding: 10px;
-  z-index: 1000;
 }
 
 .cart-list-container {
   flex: 1;
   overflow-y: auto;
   margin-bottom: 10px;
-}
-
-.cart-header {
-  font-weight: bold;
-  margin-bottom: 10px;
-  text-align: center;
 }
 
 .cart-item {
@@ -96,16 +89,26 @@ header {
   padding: 3px 6px;
 }
 
-.order-form {
-  border-top: 1px solid #ddd;
-  padding-top: 1px;
-  right: 10px;
-}
-
-.order-form input,
-.order-form button {
+.order-form input, .order-form button {
   display: block;
   width: 100%;
   margin-bottom: 8px;
   padding: 6px;
+}
+
+/* Медиазапросы для мобильного телефона */
+@media (max-width: 600px) {
+  .product-list {
+    grid-template-columns: repeat(1, 1fr);
+    margin-right: 0;
+    padding: 10px;
+  }
+  .sidebar-container {
+    position: static;
+    width: 100%;
+    margin: 0;
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+  }
 }
