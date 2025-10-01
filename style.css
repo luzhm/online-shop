@@ -1,5 +1,5 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: Montseratt, sans-serif;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
@@ -47,6 +47,24 @@ header {
   background-color: #555;
 }
 
+.counter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.counter button {
+  width: 30px;
+  height: 30px;
+  border: none;
+  background: #333;
+  color: white;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
 .sidebar-container {
   position: absolute;
   top: 130px;
@@ -87,6 +105,13 @@ header {
 .cart-item button {
   padding: 3px 6px;
 }
+
+.cart-header {
+  font-family: Montseratt, sans-serif;
+  font-weight: bold;                /* жирность: normal, bold, 100-900 */
+  font-size: 17px;                  /* размер текста */
+}
+
 
 .order-form input, 
 .order-form button {
