@@ -2,6 +2,7 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 
 header {
@@ -95,7 +96,6 @@ header {
   padding: 8px;
   font-size: 14px;
 }
-
 @media (max-width: 768px) {
   .product-list {
     grid-template-columns: repeat(2, 1fr);
@@ -107,6 +107,11 @@ header {
     width: 90%;
     margin: 20px auto;
   }
+
+  .order-form input, 
+  .order-form button {
+    width: 80%; 
+  }
 }
 
 @media (max-width: 480px) {
@@ -116,5 +121,10 @@ header {
 
   .sidebar-container {
     width: 95%;
+  }
+
+  .order-form input, 
+  .order-form button {
+    width: 90%;
   }
 }
