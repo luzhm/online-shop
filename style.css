@@ -46,21 +46,19 @@ header {
   background-color: #555;
 }
 
-
 .sidebar-container {
   position: absolute;
   top: 130px;
   right: 20px;
   width: 300px;
-  height: 80vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   background-color: #fff;
   border: 1px solid #ccc;
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   padding: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
 .cart-list-container {
@@ -89,26 +87,34 @@ header {
   padding: 3px 6px;
 }
 
-.order-form input, .order-form button {
+.order-form input, 
+.order-form button {
   display: block;
-  width: 100%;
-  margin-bottom: 8px;
-  padding: 6px;
+  width: 95%;
+  margin: 0 auto 10px auto;
+  padding: 8px;
+  font-size: 14px;
 }
 
-/* Медиазапросы для мобильного телефона */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .product-list {
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     margin-right: 0;
-    padding: 10px;
   }
+
   .sidebar-container {
-    position: static;
-    width: 100%;
-    margin: 0;
-    box-shadow: none;
-    border: none;
-    border-radius: 0;
+    position: relative;
+    width: 90%;
+    margin: 20px auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .product-list {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar-container {
+    width: 95%;
   }
 }
