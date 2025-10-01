@@ -71,9 +71,11 @@ function updateCartDisplay() {
 
     const itemDiv = document.createElement('div');
     itemDiv.className = 'cart-item';
+
+    // Добавляем инпут для изменения количества прямо в корзине
     itemDiv.innerHTML = `
       <span>${item.name} - ${item.price} ₽</span>
-      <span>Кол-во: ${item.quantity}</span>
+      <input type="number" min="1" value="${item.quantity}" data-id="${item.id}" class="cart-qty">
       <button onclick="removeFromCart(${item.id})">Удалить</button>
     `;
     cartList.appendChild(itemDiv);
@@ -82,6 +84,24 @@ function updateCartDisplay() {
   document.getElementById('cart-count').textContent = cart.length;
   document.getElementById('cart-total').textContent = total + ' ₽';
   localStorage.setItem('cart', JSON.stringify(cart));
+
+  // Привязываем обработку изменения количества через input
+  document.querySelectorAll('.cart-qty').forEach(input => {
+    input.onchange = (e) => {
+      const id = parseInt(e.target.dataset.id);
+      const newQty = parseInt(e.target.value);
+      if (newQty <= 0) {
+        removeFromCart(id);
+      } else {
+        const item = cart.find(p => p.id === id);
+        item.quantity = newQty;
+        // Обновляем счетчик на карточке
+        const cardQty = document.getElementById(`qty-${id}`);
+        if (cardQty) cardQty.textContent = newQty;
+        updateCartDisplay();
+      }
+    };
+  });
 }
 
 function removeFromCart(id) {
