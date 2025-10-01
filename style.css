@@ -106,11 +106,13 @@ header {
     position: relative;
     width: 90%;
     margin: 20px auto;
+      
   }
 
   .order-form input, 
   .order-form button {
-    width: 80%; 
+    width: 80%;
+    margin: 0 auto 10px auto;
   }
 }
 
@@ -126,5 +128,6 @@ header {
   .order-form input, 
   .order-form button {
     width: 90%;
+    margin: 0 auto 10px auto;
   }
 }
